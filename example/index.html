@@ -5,12 +5,14 @@
   <title>Example</title>
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
   <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet"/>
+  <link href="https://ekeydar.github.io/mapbox-gl-layers-switcher/dist/layers-switcher.css" type="stylesheet">
   <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
-
 </head>
 <body>
   <div id="map"></div>
-  <script>
+  <script type="module">
+      //import LayersSwitcher from 'https://ekeydar.github.io/mapbox-gl-layers-switcher/dist/layers-switcher.js';
+
       let sources = {
           'esri': {
               'type': 'raster',
