@@ -40,11 +40,11 @@ class LayersSwitcher {
         btn.onmouseenter = () => {
             btn.style.display = 'none';
             menu.style.display = 'block';
-        }
+        };
         menu.onmouseleave = () => {
             btn.style.display = 'block';
             menu.style.display = 'none';
-        }
+        };
 
         for (let blId of blIds) {
             let layerName = this.blObject[blId];
@@ -100,5 +100,8 @@ class LayersSwitcher {
 
 
 export default LayersSwitcher;
+
+window.LayersSwitcher = LayersSwitcher;
+
 
 
