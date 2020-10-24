@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Example</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet"/>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+
+</head>
+<body>
+  <div id="map"></div>
+  <script>
+      let sources = {
+          'esri': {
+              'type': 'raster',
+              'tiles': [
+                  'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
+              ],
+              'attribution': 'Esri',
+          },
+          'osm': {
+              'type': 'raster',
+              'tiles': [
+                  'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+              ],
+              'tileSize': 256,
+              'attribution': '(c) OpenStreetMap'
+          },
+          'data': {
+              type: 'geojson',
+              data: 'data.json'
+          }
+      };
+
+      let map = new mapboxgl.Map({
+          container: 'map',
+          center: [34.76, 32.05], // starting position [lng, lat]
+          zoom: 13, // starting zoom
+          style: {
+              'sources': sources,
+              'layers': [
+                  {
+                      'id': 'esri',
+                      'type': 'raster',
+                      'source': 'esri',
+                      'minzoom': 0,
+                      'maxzoom': 22,
+                      'layout': {
+                          'visibility': 'visible'
+                      }
+                  },
+                  {
+                      'id': 'osm',
+                      'type': 'raster',
+                      'source': 'osm',
+                      'minzoom': 0,
+                      'maxzoom': 22,
+                      'layout': {
+                          'visibility': 'none'
+                      }
+                  },
+                  {
+                      'id': 'polygons',
+                      'type': 'fill',
+                      'source': 'data',
+                      'paint': {
+                          'fill-color': '#888888',
+                          'fill-opacity': 0.4
+                      },
+                      'filter': ['==', '$type', 'Polygon']
+                  },
+                  {
+                      'id': 'lines',
+                      'type': 'line',
+                      'source': 'data',
+                      'paint': {
+                          'line-color': '#888',
+                          'line-width': 8
+                      },
+                      'filter': ['==', '$type', 'Point']
+                  },
+                  {
+                      'id': 'points',
+                      'type': 'circle',
+                      'source': 'data',
+                      'paint': {
+                          'circle-radius': 6,
+                          'circle-color': '#B42222'
+                      },
+                      'filter': ['==', '$type', 'Point']
+                  }
+              ],
+              'version': 8,
+          }
+      });
+
+      let switcher = new LayersSwitcher({
+          'esri': 'ESRI SATELLITE',
+          'osm': 'OpenStreetMap',
+      }, {
+          'points': 'Data points',
+          'lines': 'Data lines',
+          'polys': 'Data polygons'
+      });
+
+      map.addControl(switcher, 'bottom-left');
+  </script>
+</body>
+</html>

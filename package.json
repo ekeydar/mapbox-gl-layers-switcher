@@ -1,22 +1,22 @@
 {
-    "name": "@ekeydar/mapbox-gl-layers-switcher",
-    "version": "1.0.0",
-    "publishConfig": {
-	"registry": "https://npm.pkg.github.com/"
-    },
-    "description": "Leaflet style layer controller for mapbox-gl-js ",
-    "main": "dist/layers-switcher.js",
-    "scripts": {
-	"test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-	"type": "git",
-	"url": "git+https://github.com/ekeydar/mapbox-gl-layers-switcher.git"
-    },
-    "author": "Eran Keydar",
-    "license": "ISC",
-    "bugs": {
-	"url": "https://github.com/ekeydar/mapbox-gl-layers-switcher/issues"
-    },
+   "name": "@ekeydar/mapbox-gl-layers-switcher",
+   "version": "1.0.0",
+   "publishConfig": {
+      "registry": "https://npm.pkg.github.com/"
+   },
+   "description": "Leaflet style layer controller for mapbox-gl-js ",
+   "main": "dist/layers-switcher.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/ekeydar/mapbox-gl-layers-switcher.git"
+   },
+   "author": "Eran Keydar",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/ekeydar/mapbox-gl-layers-switcher/issues"
+   },
     "homepage": "https://github.com/ekeydar/mapbox-gl-layers-switcher#readme"
 }
